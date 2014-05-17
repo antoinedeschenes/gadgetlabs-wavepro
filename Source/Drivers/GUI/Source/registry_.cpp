@@ -12,12 +12,12 @@ BOOL registry_c::Read( registry_data_s* pData )
 //Open registry key.
 	HKEY		hKey_GadgetLabs;
 
-	if ( ERROR_SUCCESS == RegOpenKeyEx( HKEY_LOCAL_MACHINE, REGISTRY_GL_ROOT_PATH, 0, KEY_ALL_ACCESS, &hKey_GadgetLabs ) )
+	if ( ERROR_SUCCESS == RegOpenKeyEx( HKEY_LOCAL_MACHINE, _T(REGISTRY_GL_ROOT_PATH), 0, KEY_ALL_ACCESS, &hKey_GadgetLabs ) )
 	{
 	//Read 
 		DWORD	variableSize = sizeof( registry_data_s );
 
-		if ( ERROR_SUCCESS != RegQueryValueEx( hKey_GadgetLabs, REGISTRY_DATA, 0, NULL, (LPBYTE)pData, &variableSize ) )
+		if ( ERROR_SUCCESS != RegQueryValueEx( hKey_GadgetLabs, _T(REGISTRY_DATA), 0, NULL, (LPBYTE)pData, &variableSize ) )
 		{
 		//The value doesn't exist yet.
 			Status = FALSE;
@@ -43,10 +43,10 @@ BOOL registry_c::Save( registry_data_s* pData )
 	DWORD		disposition;
 	HKEY		hKey_GadgetLabs;
 
-	if ( ERROR_SUCCESS == RegCreateKeyEx( HKEY_LOCAL_MACHINE, REGISTRY_GL_ROOT_PATH, 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hKey_GadgetLabs, &disposition ) )
+	if ( ERROR_SUCCESS == RegCreateKeyEx( HKEY_LOCAL_MACHINE, _T(REGISTRY_GL_ROOT_PATH), 0, NULL, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, NULL, &hKey_GadgetLabs, &disposition ) )
 	{
 	//Save
-		if ( ERROR_SUCCESS != RegSetValueEx( hKey_GadgetLabs, REGISTRY_DATA, 0, REG_BINARY, (LPBYTE)pData, sizeof( registry_data_s ) ) )
+		if (ERROR_SUCCESS != RegSetValueEx(hKey_GadgetLabs, _T(REGISTRY_DATA), 0, REG_BINARY, (LPBYTE)pData, sizeof(registry_data_s)))
 		{
 		//The value doesn't exist yet.
 			Status = FALSE;

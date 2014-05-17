@@ -116,8 +116,8 @@ BOOL CControlPanelDlg::Notification_Set()
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Failed to set notication events.\n\nInternal error... please contact author about this.",
-		  "Error",
+			_T("Failed to set notication events.\n\nInternal error... please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}

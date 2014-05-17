@@ -20,8 +20,8 @@ void CControlPanelDlg::OnBnClickedSync()
 	else
 	{
 		MessageBox(
-		  "Internal error occured -> please contact author about this.",
-		  "Error",
+			_T("Internal error occured -> please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}

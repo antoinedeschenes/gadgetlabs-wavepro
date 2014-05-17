@@ -7,7 +7,7 @@ void CControlPanelDlg::OnBnClickedAbout()
 //Show About dialog was requested... remove the request form the main dialog tittle.
 	if ( m_RequestDisplayed == FALSE )
 	{
-		SetWindowText( "GadgetLabs Control Panel" );
+		SetWindowText( _T("GadgetLabs Control Panel"));
 		m_RequestDisplayed = TRUE;
 	}
 

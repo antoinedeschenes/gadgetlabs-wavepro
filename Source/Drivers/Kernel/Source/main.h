@@ -43,11 +43,12 @@ extern "C" {
 #include <DMusicKS.h>
 
 //Some extra structures that will help us out.
-typedef struct	
+//AD :  Already exists in< wdm.h
+/*typedef struct	
 {
 	KSDATAFORMAT			DataFormat;
-	WAVEFORMATEXTENSIBLE	WaveFormatEx;
-} KSDATAFORMAT_WAVEFORMATEXTENSIBLE, *PKSDATAFORMAT_WAVEFORMATEXTENSIBLE;
+	WAVEFORMATEXTENSIBLE	WaveFormatExt;
+} KSDATAFORMAT_WAVEFORMATEXTENSIBLE, *PKSDATAFORMAT_WAVEFORMATEXTENSIBLE;*/
 
 __declspec(align(1)) struct SAMPLE
 {

@@ -11,5 +11,6 @@ void CControlPanelDlg::OnBnClickedSystemTrayOpen()
 void CControlPanelDlg::OnBnClickedSystemTrayExit()
 {
 //Exit dialog.
-	PostMessage( WM_CLOSE, 0, 0 );
+	m_menuExit = TRUE; //AD - Allow application to exit rather than minimize with the system tray Exit button.
+	PostMessage( WM_CLOSE );
 }

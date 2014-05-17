@@ -10,5 +10,6 @@ void CControlPanelDlg::OnBnClickedMinimizeToTray()
 void CControlPanelDlg::OnBnClickedExit()
 {
 //Exit dialog.
+	m_menuExit = TRUE;
 	PostMessage( WM_CLOSE );
 }

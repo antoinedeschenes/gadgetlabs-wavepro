@@ -13,57 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Neutral resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
-LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
-#pragma code_page(1250)
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 4,2,0,2
- PRODUCTVERSION 4,2,0,2
- FILEFLAGSMASK 0x17L
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x0L
- FILETYPE 0x3L
- FILESUBTYPE 0x9L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "000904b0"
-        BEGIN
-            VALUE "Comments", "Kernel driver for Gadgetlabs WavePro series sound cards"
-            VALUE "CompanyName", "Gadgetlabs"
-            VALUE "FileDescription", "Gadgetlabs kernel driver"
-            VALUE "FileVersion", "4.2.0.2"
-            VALUE "InternalName", "Gadgetlabs Kernel Driver"
-            VALUE "LegalCopyright", "Copyright (C) 2010"
-            VALUE "OriginalFilename", "Gadgetlabs Kernel Driver"
-            VALUE "ProductName", "Gadgetlabs Kernel Driver"
-            VALUE "ProductVersion", "4.2.0.2"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x9, 1200
-    END
-END
-
-#endif    // Neutral resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// Slovenian (Slovenia) resources
+// Slovène (Slovénie) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_SLV)
 LANGUAGE LANG_SLOVENIAN, SUBLANG_DEFAULT
@@ -94,7 +44,57 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Slovenian (Slovenia) resources
+#endif    // Slovène (Slovénie) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutre resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 4,2,0,3
+ PRODUCTVERSION 4,2,0,3
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x0L
+ FILETYPE 0x3L
+ FILESUBTYPE 0x9L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "000904b0"
+        BEGIN
+            VALUE "Comments", "Kernel driver for Gadgetlabs WavePro series sound cards"
+            VALUE "CompanyName", "Gadgetlabs"
+            VALUE "FileDescription", "Gadgetlabs kernel driver"
+            VALUE "FileVersion", "4.2.0.3"
+            VALUE "InternalName", "Gadgetlabs Kernel Driver"
+            VALUE "LegalCopyright", "Copyright (C) 2010"
+            VALUE "OriginalFilename", "Gadgetlabs Kernel Driver"
+            VALUE "ProductName", "Gadgetlabs Kernel Driver"
+            VALUE "ProductVersion", "4.2.0.3"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x9, 1200
+    END
+END
+
+#endif    // Neutre resources
 /////////////////////////////////////////////////////////////////////////////
 
 

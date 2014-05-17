@@ -112,8 +112,8 @@ BOOL CControlPanelDlg::ProtectingIRP_Set()
 
 	//Display error message.
 		MessageBox(
-		  "ControlPanel failed to establish protection IRP with the driver.\n\nPlease report this to the author.",
-		  "Error",
+			_T("ControlPanel failed to establish protection IRP with the driver.\n\nPlease report this to the author."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}

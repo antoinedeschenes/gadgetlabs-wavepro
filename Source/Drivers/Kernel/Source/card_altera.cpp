@@ -263,7 +263,8 @@ NTSTATUS card_c::Altera_MemoryTest_Analog
 	PULONG		tempBuffer;
 
 //Get temp buffer memory.
-	tempBuffer = (PULONG) ExAllocatePool( NonPagedPool, m_Mem_Analog_length );
+	// tempBuffer = (PULONG) ExAllocatePool( NonPagedPool, m_Mem_Analog_length ); AD suggestion by VS to replace
+	tempBuffer = (PULONG)ExAllocatePool(NonPagedPool, m_Mem_Analog_length);
 	if ( tempBuffer == NULL )
 	{
 		Status = STATUS_INSUFFICIENT_RESOURCES;

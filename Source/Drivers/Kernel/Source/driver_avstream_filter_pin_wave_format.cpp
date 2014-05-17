@@ -250,47 +250,47 @@ NTSTATUS driver_c::Pin_AudioIntersectHandler
 		pDataFormat->DataFormat.FormatSize = sizeof( KSDATAFORMAT_WAVEFORMATEXTENSIBLE );
 
 	//wFormatTag
-		pDataFormat->WaveFormatEx.Format.wFormatTag = WAVE_FORMAT_EXTENSIBLE;
+		pDataFormat->WaveFormatExt.Format.wFormatTag = WAVE_FORMAT_EXTENSIBLE;
 
 	//nChannels
 	//
 	//Only stereo or all channels will be supported.
-		pDataFormat->WaveFormatEx.Format.nChannels = (WORD)min( pCallerDataRange->MaximumChannels, pDescriptorDataRange->MaximumChannels );
+		pDataFormat->WaveFormatExt.Format.nChannels = (WORD)min( pCallerDataRange->MaximumChannels, pDescriptorDataRange->MaximumChannels );
 
 	//nSamplesPerSec
-		pDataFormat->WaveFormatEx.Format.nSamplesPerSec = nSamplesPerSec;
+		pDataFormat->WaveFormatExt.Format.nSamplesPerSec = nSamplesPerSec;
 
 	//nBlockAlign
 	//n bytes = n channels * (32bits/8)
 	//i.e. 8 for 2 channel
-		pDataFormat->WaveFormatEx.Format.nBlockAlign = pDataFormat->WaveFormatEx.Format.nChannels * 4;
+		pDataFormat->WaveFormatExt.Format.nBlockAlign = pDataFormat->WaveFormatExt.Format.nChannels * 4;
 
 	//nAvgBytesPerSec
-		pDataFormat->WaveFormatEx.Format.nAvgBytesPerSec = pDataFormat->WaveFormatEx.Format.nSamplesPerSec * pDataFormat->WaveFormatEx.Format.nBlockAlign;
+		pDataFormat->WaveFormatExt.Format.nAvgBytesPerSec = pDataFormat->WaveFormatExt.Format.nSamplesPerSec * pDataFormat->WaveFormatExt.Format.nBlockAlign;
 
 	//wBitsPerSample
-		pDataFormat->WaveFormatEx.Format.wBitsPerSample = 32;
+		pDataFormat->WaveFormatExt.Format.wBitsPerSample = 32;
 
 	//cbSize
-		pDataFormat->WaveFormatEx.Format.cbSize = sizeof( WAVEFORMATEXTENSIBLE ) - sizeof( WAVEFORMATEX );
+		pDataFormat->WaveFormatExt.Format.cbSize = sizeof( WAVEFORMATEXTENSIBLE ) - sizeof( WAVEFORMATEX );
 
 	//wValidBitesPerSample
 		if ( wildcard == TRUE )
 		{
 		//Wildcard -> return preferred dataRange.
-			pDataFormat->WaveFormatEx.Samples.wValidBitsPerSample = 24;
+			pDataFormat->WaveFormatExt.Samples.wValidBitsPerSample = 24;
 		}
 		else
 		{
 		//Not a wildcard -> check the dataRange.
-			pDataFormat->WaveFormatEx.Samples.wValidBitsPerSample = (WORD)min( pCallerDataRange->MaximumBitsPerSample, 24 );
+			pDataFormat->WaveFormatExt.Samples.wValidBitsPerSample = (WORD)min( pCallerDataRange->MaximumBitsPerSample, 24 );
 		}
 
 	//dwChannelMask
-		if ( pDataFormat->WaveFormatEx.Format.nChannels == 2 )
+		if ( pDataFormat->WaveFormatExt.Format.nChannels == 2 )
 		{
 		//Stereo channels format...
-			pDataFormat->WaveFormatEx.dwChannelMask = KSAUDIO_SPEAKER_STEREO;
+			pDataFormat->WaveFormatExt.dwChannelMask = KSAUDIO_SPEAKER_STEREO;
 		}
 		else
 		{
@@ -302,17 +302,17 @@ NTSTATUS driver_c::Pin_AudioIntersectHandler
 			if ( pCard->m_Type != card_c::CARD_TYPE_824 )
 			{
 			//4xx
-				pDataFormat->WaveFormatEx.dwChannelMask = KSAUDIO_SPEAKER_QUAD;
+				pDataFormat->WaveFormatExt.dwChannelMask = KSAUDIO_SPEAKER_QUAD;
 			}
 			else
 			{
 			//824
-				pDataFormat->WaveFormatEx.dwChannelMask = KSAUDIO_SPEAKER_7POINT1_SURROUND;
+				pDataFormat->WaveFormatExt.dwChannelMask = KSAUDIO_SPEAKER_7POINT1_SURROUND;
 			}
 		}
 
 	//SubFormat
-		pDataFormat->WaveFormatEx.SubFormat = KSDATAFORMAT_SUBTYPE_PCM;
+		pDataFormat->WaveFormatExt.SubFormat = KSDATAFORMAT_SUBTYPE_PCM;
 	}
 
 #ifdef DBG_AND_LOGGER
@@ -551,7 +551,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 	if ( SUCCESS( Status ) )
 	{
 	//Sample rate.
-		nSamplesPerSec = pConnectionFormat->WaveFormatEx.Format.nSamplesPerSec;
+		nSamplesPerSec = pConnectionFormat->WaveFormatExt.Format.nSamplesPerSec;
 		//Convert sampleRate to driver sampleRate value.
 		switch ( nSamplesPerSec )
 		{
@@ -650,11 +650,11 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 //
 	if ( SUCCESS( Status ) )
 	{
-		WORD	cbSize = pConnectionFormat->WaveFormatEx.Format.cbSize;
-		WORD	nChannels = pConnectionFormat->WaveFormatEx.Format.nChannels;
+		WORD	cbSize = pConnectionFormat->WaveFormatExt.Format.cbSize;
+		WORD	nChannels = pConnectionFormat->WaveFormatExt.Format.nChannels;
 
 	//wFormatTag
-		WORD	wFormatTag = pConnectionFormat->WaveFormatEx.Format.wFormatTag;
+		WORD	wFormatTag = pConnectionFormat->WaveFormatExt.Format.wFormatTag;
 
 		if ( wFormatTag == WAVE_FORMAT_EXTENSIBLE )
 		{
@@ -708,12 +708,12 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 		if ( SUCCESS( Status ) )
 		{
 			if (
-			  pConnectionFormat->WaveFormatEx.Format.nAvgBytesPerSec
+			  pConnectionFormat->WaveFormatExt.Format.nAvgBytesPerSec
 			  != 
 			  (
-			    pConnectionFormat->WaveFormatEx.Format.nSamplesPerSec
+			    pConnectionFormat->WaveFormatExt.Format.nSamplesPerSec
 			    *
-			    pConnectionFormat->WaveFormatEx.Format.nBlockAlign
+			    pConnectionFormat->WaveFormatExt.Format.nBlockAlign
 			  )
 			)
 			{
@@ -724,7 +724,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 	//sample containers
 		if ( SUCCESS( Status ) )
 		{
-			WORD	nBlockAlign = pConnectionFormat->WaveFormatEx.Format.nBlockAlign;
+			WORD	nBlockAlign = pConnectionFormat->WaveFormatExt.Format.nBlockAlign;
 
 			switch ( nBlockAlign/nChannels )
 			{
@@ -736,7 +736,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 			//WAVEFORMATEXTENSIBLE -> DX_MME_16bit
 			//
 			//wBitsPerSample
-				if ( pConnectionFormat->WaveFormatEx.Format.wBitsPerSample != 16 )
+				if ( pConnectionFormat->WaveFormatExt.Format.wBitsPerSample != 16 )
 				{
 					Status = STATUS_NO_MATCH;
 				}
@@ -746,7 +746,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 				//WAVEFORMATEXTENSIBLE -> DX_MME_16bit
 				//
 				//wValidBitesPerSample
-					if ( pConnectionFormat->WaveFormatEx.Samples.wValidBitsPerSample != 16 )
+					if ( pConnectionFormat->WaveFormatExt.Samples.wValidBitsPerSample != 16 )
 					{
 						Status = STATUS_NO_MATCH;
 					}
@@ -782,7 +782,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 			//WAVEFORMATEXTENSIBLE -> DX_MME_24bit
 			//
 			//wBitsPerSample
-				if ( pConnectionFormat->WaveFormatEx.Format.wBitsPerSample != 24 )
+				if ( pConnectionFormat->WaveFormatExt.Format.wBitsPerSample != 24 )
 				{
 					Status = STATUS_NO_MATCH;
 				}
@@ -792,7 +792,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 				//WAVEFORMATEXTENSIBLE -> DX_MME_24bit
 				//
 				//wValidBitesPerSample
-					if ( pConnectionFormat->WaveFormatEx.Samples.wValidBitsPerSample != 24 )
+					if ( pConnectionFormat->WaveFormatExt.Samples.wValidBitsPerSample != 24 )
 					{
 						Status = STATUS_NO_MATCH;
 					}
@@ -828,7 +828,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 			//WAVEFORMATEXTENSIBLE -> DX_MME_32bit
 			//
 			//wBitsPerSample
-				if ( pConnectionFormat->WaveFormatEx.Format.wBitsPerSample != 32 )
+				if ( pConnectionFormat->WaveFormatExt.Format.wBitsPerSample != 32 )
 				{
 					Status = STATUS_NO_MATCH;
 				}
@@ -838,7 +838,7 @@ NTSTATUS driver_c::Pin_SetDataFormat_Wave
 				//WAVEFORMATEXTENSIBLE -> DX_MME_32bit
 				//
 				//wValidBitesPerSample
-					if ( pConnectionFormat->WaveFormatEx.Samples.wValidBitsPerSample > 24 )
+					if ( pConnectionFormat->WaveFormatExt.Samples.wValidBitsPerSample > 24 )
 					{
 						Status = STATUS_NO_MATCH;
 					}

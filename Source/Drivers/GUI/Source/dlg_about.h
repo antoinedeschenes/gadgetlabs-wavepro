@@ -13,7 +13,7 @@ protected:
 	public: virtual BOOL OnInitDialog();
 
 //Text...
-	static const char*		m_Request;
+	static const TCHAR*		m_Request;
 	afx_msg void OnBnClickedDonateEur();
 	afx_msg void OnBnClickedDonateUsd();
 	afx_msg void OnBnClickedExit();

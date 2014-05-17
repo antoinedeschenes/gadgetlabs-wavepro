@@ -126,7 +126,7 @@ BOOL CControlPanelDlg::OnInitDialog()
 
 //Set system tray stuff.
 	Tray_SetIcon( m_hIcon );
-	Tray_SetToolTip( "Gadgetlabs WavePro Series" );
+	Tray_SetToolTip( _T("Gadgetlabs WavePro Series") );
 	Tray_SetMenu( IDR_SYSTEM_TRAY_MENU );
 	Tray_Show();
 
@@ -141,8 +141,8 @@ BOOL CControlPanelDlg::OnInitDialog()
 	{
 	//Failed...
 		MessageBox(
-		  "Failed to get driver handle.\nDo you have Gadgetlabs driver installed?",
-		  "Error",
+			_T("Failed to get driver handle.\nDo you have Gadgetlabs driver installed?"),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 		EndDialog(0);
@@ -223,7 +223,7 @@ LRESULT CControlPanelDlg::DialogBox_FullRefresh( WPARAM wParam, LPARAM lParam )
 		m_RequestDisplayed = settings.m_RequestDisplayed;
 		if ( m_RequestDisplayed == FALSE )
 		{
-			SetWindowText( "GadgetLabs Control Panel                           Please check Help->About dialog." );
+			SetWindowText(_T("GadgetLabs Control Panel                           Please check Help->About dialog."));
 		}
 
 	//Set new bufferSize.
@@ -310,30 +310,25 @@ void CControlPanelDlg::SaveAndFreeResources()
 
 void CControlPanelDlg::OnClose()
 {
-//Is system in shut down mode or did user close the GUI.
-	if (
-	  ( m_System_shutDown == FALSE )
-	  &&
-	  ( m_Synced == TRUE )
-	)
+	if (m_menuExit)
 	{
-		HRESULT		result = MessageBox(
-		  "GUI can not be closed while cards are synced.\nIf you will proceed the cards will be desynced\n(even if channels are playing).\n\nContinue?",
-		  "Error",
-		  MB_YESNO | MB_ICONWARNING | MB_TOPMOST
-		);
-		if ( result == IDNO )
-		{
-		//Don't close the application.
-			return;
-		}
+		//Is system in shut down mode or did user close the GUI.
+		if (!m_System_shutDown && m_Synced)
+			if (MessageBox(_T("GUI can not be closed while cards are synced.\nIf you will proceed the cards will be desynced\n(even if channels are playing).\n\nContinue?)"),
+				_T("Error"), MB_YESNO | MB_ICONWARNING | MB_TOPMOST) == IDNO)
+				return;//Don't close the application.
+
+		//Save and free...
+		SaveAndFreeResources();
+
+		//Close dialog.
+		CDialog::OnClose();
+	
+
 	}
+	else
+		ShowWindow(SW_HIDE);
 
-//Save and free...
-	SaveAndFreeResources();
-
-//Close dialog.
-	CDialog::OnClose();
 }
 
 BOOL CControlPanelDlg::OnQueryEndSession()

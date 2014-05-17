@@ -22,8 +22,8 @@ BOOL CControlPanelDlg::Cards_RefreshInfo( void )
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Failed to refresh cards data.",
-		  "Error",
+			_T("Failed to refresh cards data."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
@@ -38,8 +38,8 @@ ioctl_cardInfo_s* CControlPanelDlg::Cards_Tree_GetSelected( void )
 	if ( hwndTree == NULL )
 	{
 		MessageBox(
-		  "Internal error occured -> please contact author about this.",
-		  "Error",
+			_T("Internal error occured -> please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 		return NULL;
@@ -89,7 +89,7 @@ BOOL CControlPanelDlg::Cards_Tree_Set( void )
 	CTreeCtrl*		hwndTree = (CTreeCtrl*)GetDlgItem( IDC_TREE );
 	if ( hwndTree == NULL )
 	{
-		MessageBox( "Internal error occured -> please contact author about this.", "Error", MB_OK | MB_ICONWARNING | MB_TOPMOST );
+		MessageBox(_T("Internal error occured -> please contact author about this."), _T("Error"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
 		return FALSE;
 	}
 
@@ -115,19 +115,19 @@ BOOL CControlPanelDlg::Cards_Tree_Set( void )
 			switch ( m_Cards[i].m_Type )
 			{
 			case ioctl_cardInfo_s::CARD_TYPE_424:
-				_stprintf( buffer, _T("Gadgetlabs 424 (ver: %d)"), m_Cards[i].m_Type_subVersion );
+				_stprintf_s( buffer, _T("Gadgetlabs 424 (ver: %d)"), (LONG)m_Cards[i].m_Type_subVersion ); //AD Long to fix VS complaints
 				hItem = hwndTree->InsertItem( buffer );
 				break;
 			case ioctl_cardInfo_s::CARD_TYPE_496:
-				_stprintf( buffer, _T("Gadgetlabs 496 (ver: %d)"), m_Cards[i].m_Type_subVersion );
+				_stprintf_s(buffer, _T("Gadgetlabs 496 (ver: %d)"), (LONG)m_Cards[i].m_Type_subVersion);
 				hItem = hwndTree->InsertItem( buffer );
 				break;
 			case ioctl_cardInfo_s::CARD_TYPE_824:
-				_stprintf( buffer, _T("Gadgetlabs 824 (ver: %d)"), m_Cards[i].m_Type_subVersion );
+				_stprintf_s(buffer, _T("Gadgetlabs 824 (ver: %d)"), (LONG)m_Cards[i].m_Type_subVersion);
 				hItem = hwndTree->InsertItem( buffer );
 				break;
 			default:
-				MessageBox( "Internal error occured -> please contact author about this.", "Error", MB_OK | MB_ICONWARNING | MB_TOPMOST );
+				MessageBox(_T("Internal error occured -> please contact author about this."), _T("Error"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
 				return FALSE;
 			}
 			hwndTree->SetItemData( hItem, (DWORD_PTR)&m_Cards[i] );
@@ -139,7 +139,7 @@ BOOL CControlPanelDlg::Cards_Tree_Set( void )
 			switch ( m_Cards[i].m_ClockSource )
 			{
 			case ioctl_cardInfo_s::CLOCK_SOURCE_CARD:
-				hwndTree->InsertItem( _T("Clock: local (on card)"), hItem );
+				hwndTree->InsertItem( _T("Clock: local (on card)"), hItem ); //AD what to do here?
 				break;
 			case ioctl_cardInfo_s::CLOCK_SOURCE_EXTERN:
 				hwndTree->InsertItem( _T("Clock: sync cable"), hItem );
@@ -185,10 +185,10 @@ BOOL CControlPanelDlg::Cards_Tree_Set( void )
 			hItem_opened = hwndTree->InsertItem( _T("Channels opened:"), hItem );
 			m_Cards_Tree_openedChannels[i] = hItem_opened;
 
-			_stprintf( buffer, "ASIO: in: %d, out: %d", m_Cards[i].m_Channels_opened_INs_ASIO, m_Cards[i].m_Channels_opened_OUTs_ASIO );
+			_stprintf_s(buffer, _T("ASIO: in: %d, out: %d"), (char)m_Cards[i].m_Channels_opened_INs_ASIO, (char)m_Cards[i].m_Channels_opened_OUTs_ASIO); //AD char to fix VS complaints
 			m_Cards_Tree_openedChannels_type[i][1] = hwndTree->InsertItem( buffer, hItem_opened );
 
-			_stprintf( buffer, "WDM: in: %d, out: %d", m_Cards[i].m_Channels_opened_INs_AVStream, m_Cards[i].m_Channels_opened_OUTs_AVStream );
+			_stprintf_s(buffer, _T("WDM: in: %d, out: %d"), (char)m_Cards[i].m_Channels_opened_INs_AVStream, (char)m_Cards[i].m_Channels_opened_OUTs_AVStream);
 			m_Cards_Tree_openedChannels_type[i][2] = hwndTree->InsertItem( buffer, hItem_opened );
 		}
 		else
@@ -234,10 +234,10 @@ void CControlPanelDlg::Cards_Tree_Update_OpenedChannels
 	//Update text.
 		TCHAR		buffer[64];
 
-		_stprintf( buffer, "ASIO: in: %d, out: %d", ASIO_input, ASIO_output );
+		_stprintf_s(buffer, _T("ASIO: in: %d, out: %d"), (char)ASIO_input, (char)ASIO_output); //AD char to fix VS complaints
 		hwndTree->SetItemText( m_Cards_Tree_openedChannels_type[serialNumber][1], buffer );
 
-		_stprintf( buffer, "WDM: in: %d, out: %d", WDM_input, WDM_output );
+		_stprintf_s(buffer, _T("WDM: in: %d, out: %d"), (char)WDM_input, (char)WDM_output);
 		hwndTree->SetItemText( m_Cards_Tree_openedChannels_type[serialNumber][2], buffer );
 	}
 

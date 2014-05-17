@@ -509,7 +509,7 @@ char* logger_c::Logger_Driver_AVStream_Pin_Format_DataFormat
 				);
 			}
 		//Format.wFormatTag
-			wFormatTag = dataFormat.MME_WDM->WaveFormatEx.Format.wFormatTag;
+			wFormatTag = dataFormat.MME_WDM->WaveFormatExt.Format.wFormatTag;
 			if ( wFormatTag == WAVE_FORMAT_EXTENSIBLE )
 			{
 				pBuffer += sprintf(
@@ -536,34 +536,34 @@ char* logger_c::Logger_Driver_AVStream_Pin_Format_DataFormat
 			pBuffer += sprintf(
 			  pBuffer,
 			  "    Format.nChannels: %d\n",
-			  dataFormat.MME_WDM->WaveFormatEx.Format.nChannels
+			  dataFormat.MME_WDM->WaveFormatExt.Format.nChannels
 			);
 		//Format.nSamplesPerSec
 			pBuffer += sprintf(
 			  pBuffer,
 			  "    Format.nSamplesPerSec: %d\n",
-			  dataFormat.MME_WDM->WaveFormatEx.Format.nSamplesPerSec
+			  dataFormat.MME_WDM->WaveFormatExt.Format.nSamplesPerSec
 			);
 		//Format.nAvgBytesPerSec
 			pBuffer += sprintf(
 			  pBuffer,
 			  "    Format.nAvgBytesPerSec: %d\n",
-			  dataFormat.MME_WDM->WaveFormatEx.Format.nAvgBytesPerSec
+			  dataFormat.MME_WDM->WaveFormatExt.Format.nAvgBytesPerSec
 			);
 		//Format.nBlockAlign
 			pBuffer += sprintf(
 			  pBuffer,
 			  "    Format.nBlockAlign: %d\n",
-			  dataFormat.MME_WDM->WaveFormatEx.Format.nBlockAlign
+			  dataFormat.MME_WDM->WaveFormatExt.Format.nBlockAlign
 			);
 		//Format.wBitsPerSample
 			pBuffer += sprintf(
 			  pBuffer,
 			  "    Format.wBitsPerSample: %d\n",
-			  dataFormat.MME_WDM->WaveFormatEx.Format.wBitsPerSample
+			  dataFormat.MME_WDM->WaveFormatExt.Format.wBitsPerSample
 			);
 		//Format.cbSize
-			cbSize = dataFormat.MME_WDM->WaveFormatEx.Format.cbSize;
+			cbSize = dataFormat.MME_WDM->WaveFormatExt.Format.cbSize;
 			if (
 			  cbSize
 			  ==
@@ -606,13 +606,13 @@ char* logger_c::Logger_Driver_AVStream_Pin_Format_DataFormat
 				pBuffer += sprintf(
 				  pBuffer,
 				  "    Format.wValidBitesPerSample: %d\n",
-				  dataFormat.MME_WDM->WaveFormatEx.Samples.wValidBitsPerSample
+				  dataFormat.MME_WDM->WaveFormatExt.Samples.wValidBitsPerSample
 				);
 			//Format.dwChannelMask
 			//
 			//WALDEMAR
 			//If support for separate channels will be set then we have to fix this part.
-				dwChannelMask = dataFormat.MME_WDM->WaveFormatEx.dwChannelMask;
+				dwChannelMask = dataFormat.MME_WDM->WaveFormatExt.dwChannelMask;
 				switch ( dwChannelMask )
 				{
 				case KSAUDIO_SPEAKER_STEREO :
@@ -653,7 +653,7 @@ char* logger_c::Logger_Driver_AVStream_Pin_Format_DataFormat
 				}
 
 			//Format.SubFormat
-				pGUID = &( dataFormat.MME_WDM->WaveFormatEx.SubFormat );
+				pGUID = &( dataFormat.MME_WDM->WaveFormatExt.SubFormat );
 				if ( (BOOL)TRUE == IsEqualGUID( *pGUID, KSDATAFORMAT_SUBTYPE_PCM ) )
 				{
 					pBuffer += sprintf(

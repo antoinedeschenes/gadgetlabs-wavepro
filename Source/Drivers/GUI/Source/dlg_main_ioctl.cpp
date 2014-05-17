@@ -52,8 +52,8 @@ BOOL CControlPanelDlg::TestIoEngineVersions( void )
 		if ( outputData != IOCTL_GUI_ENGINE_VERSION )
 		{
 			MessageBox(
-			  "ControlPanel version is not the same as driver's one\n(communication with driver is not permited).\nYou need to get a newer version of the ControlPanel.",
-			  "Error",
+				_T("ControlPanel version is not the same as driver's one\n(communication with driver is not permited).\nYou need to get a newer version of the ControlPanel."),
+				_T("Error"),
 			  MB_OK | MB_ICONWARNING | MB_TOPMOST
 			);
 			Status = FALSE;
@@ -62,8 +62,8 @@ BOOL CControlPanelDlg::TestIoEngineVersions( void )
 	else
 	{
 		MessageBox(
-		  "Failed to get IO engine version.\n\nInternal error... please contact author about this.",
-		  "Error",
+			_T("Failed to get IO engine version.\n\nInternal error... please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
@@ -85,8 +85,8 @@ BOOL CControlPanelDlg::TestIoEngineVersions( void )
 			if ( outputData != IOCTL_DATA_ENGINE_VERSION )
 			{
 				MessageBox(
-				  "ControlPanel version is not the same as driver's one\n(communication with driver is not permited).\nYou need to get a newer version of the ControlPanel.",
-				  "Error",
+					_T("ControlPanel version is not the same as driver's one\n(communication with driver is not permited).\nYou need to get a newer version of the ControlPanel."),
+					_T("Error"),
 				  MB_OK | MB_ICONWARNING | MB_TOPMOST
 				);
 				Status = FALSE;
@@ -95,8 +95,8 @@ BOOL CControlPanelDlg::TestIoEngineVersions( void )
 		else
 		{
 			MessageBox(
-			  "Failed to get IO engine version.\n\nInternal error... please contact author about this.",
-			  "Error",
+				_T("Failed to get IO engine version.\n\nInternal error... please contact author about this."),
+				_T("Error"),
 			  MB_OK | MB_ICONWARNING | MB_TOPMOST
 			);
 		}

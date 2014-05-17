@@ -50,7 +50,7 @@ BOOL CControlPanelDlg::ChannelStatus_GetAll( void )
 	//Free resources...
 		delete[] pHeader;
 
-		MessageBox( "Failed to get channels data.", "Error", MB_OK | MB_ICONWARNING | MB_TOPMOST );
+		MessageBox(_T("Failed to get channels data."), _T("Error"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
 
 		return FALSE;
 	}
@@ -582,8 +582,8 @@ BOOL CControlPanelDlg::ChannelStatus_SetAll(  registry_data_s* pSettings )
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Failed to set channel properties.\n\nInternal error... please contact author about this.",
-		  "Error",
+			_T("Failed to set channel properties.\n\nInternal error... please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
@@ -670,8 +670,8 @@ void CControlPanelDlg::ChannelStatus_Set( unsigned char type, unsigned char chan
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Current request couldn't be executed.\n\nUnsupported operation on current card or ControlPanel internal error.",
-		  "Error",
+			_T("Current request couldn't be executed.\n\nUnsupported operation on current card or ControlPanel internal error."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 		return;
@@ -691,7 +691,7 @@ BOOL CControlPanelDlg::ChannelStatus_SendToDriver( unsigned char serialNumber_ca
 	ioctl_channelProperty_header_s*		pHeader = (ioctl_channelProperty_header_s*)new char[size];
 	if ( pHeader == NULL )
 	{
-		MessageBox( "Not enough memory.", "Error", MB_OK | MB_ICONWARNING | MB_TOPMOST );
+		MessageBox(_T("Not enough memory."), _T("Error"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
 		return FALSE;
 	}
 
@@ -729,7 +729,7 @@ BOOL CControlPanelDlg::ChannelStatus_SendToDriver( unsigned char serialNumber_ca
 //All ok?
 	if ( Status == FALSE )
 	{
-		MessageBox( "Failed to set channel control change.", "Error", MB_OK | MB_ICONWARNING | MB_TOPMOST );
+		MessageBox(_T("Failed to set channel control change."), _T("Error"), MB_OK | MB_ICONWARNING | MB_TOPMOST);
 	}
 
 	return Status;

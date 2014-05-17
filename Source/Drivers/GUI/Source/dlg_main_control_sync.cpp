@@ -57,8 +57,8 @@ BOOL CControlPanelDlg::SyncCards( unsigned long sync )
 		else
 		{
 			MessageBox(
-			  "Internal error occured -> please contact author about this.",
-			  "Error",
+				_T("Internal error occured -> please contact author about this."),
+				_T("Error"),
 			  MB_OK | MB_ICONWARNING | MB_TOPMOST
 			);
 
@@ -68,8 +68,8 @@ BOOL CControlPanelDlg::SyncCards( unsigned long sync )
 	else
 	{
 		MessageBox(
-			"Failed to change synhronization.\n\nPossible problems:\n - channels are opened... close them and try again\n - sync between cards was not detected.",
-		  "Error",
+			_T("Failed to change synhronization.\n\nPossible problems:\n - channels are opened... close them and try again\n - sync between cards was not detected."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
@@ -81,8 +81,8 @@ BOOL CControlPanelDlg::SyncCards( unsigned long sync )
 		if ( Status == FALSE )
 		{
 			MessageBox(
-			  "Failed to refresh cards info.",
-			  "Error",
+				_T("Failed to refresh cards info."),
+				_T("Error"),
 			  MB_OK | MB_ICONWARNING | MB_TOPMOST
 			);
 		}
@@ -95,8 +95,8 @@ BOOL CControlPanelDlg::SyncCards( unsigned long sync )
 		if ( Status == FALSE )
 		{
 			MessageBox(
-			  "Failed to refresh tree.",
-			  "Error",
+				_T("Failed to refresh tree."),
+				_T("Error"),
 			  MB_OK | MB_ICONWARNING | MB_TOPMOST
 			);
 		}
@@ -133,8 +133,8 @@ void CControlPanelDlg::SyncCard_EnableMenu()
 	else
 	{
 		MessageBox(
-		  "Internal error occured -> please contact author about this.",
-		  "Error",
+			_T("Internal error occured -> please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}

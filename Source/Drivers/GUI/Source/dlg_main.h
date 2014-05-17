@@ -27,7 +27,7 @@ class CControlPanelDlg : public CTrayDialog
 
 	protected: BOOL						m_System_saved;
 	protected: BOOL						m_System_shutDown;
-
+	protected: BOOL						m_menuExit=FALSE; //AD only exit if Exit was pressed in one of the menus.
 	protected: HICON					m_hIcon;
 	protected: unsigned long			m_Visible;
 

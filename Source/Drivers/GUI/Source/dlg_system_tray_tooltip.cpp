@@ -7,6 +7,6 @@ void CTrayDialog::Tray_SetToolTip( LPCTSTR lpszToolTip )
 	ASSERT(strlen(lpszToolTip) > 0 && strlen(lpszToolTip) < 64);
 
 //Set tooltip text.
-	strcpy_s( m_Icon_NotificationData.szTip, sizeof( m_Icon_NotificationData.szTip ), lpszToolTip );
+	_tcscpy_s( m_Icon_NotificationData.szTip, sizeof( m_Icon_NotificationData.szTip ), lpszToolTip );
 	m_Icon_NotificationData.uFlags |= NIF_TIP;
 }

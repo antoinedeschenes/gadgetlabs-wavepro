@@ -8,8 +8,8 @@ BOOL CApplication::IsInstallationRequest()
 //Is it installation request?
 	CString		commandLine = m_lpCmdLine;
 
-	int			index_32bit = commandLine.Find( "-start_GUI:gadgetlabs_gui_32.exe", 0 );
-	int			index_64bit = commandLine.Find( "-start_GUI:gadgetlabs_gui_64.exe", 0 );
+	int			index_32bit = commandLine.Find(_T("-start_GUI:gadgetlabs_gui_32.exe"), 0);
+	int			index_64bit = commandLine.Find(_T("-start_GUI:gadgetlabs_gui_64.exe"), 0);
 
 	if ( 
 	  ( index_32bit > -1 )

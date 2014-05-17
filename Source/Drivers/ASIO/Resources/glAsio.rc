@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// Anglais (États-Unis) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -153,8 +153,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 4,2,0,2
- PRODUCTVERSION 4,2,0,2
+ FILEVERSION 4,2,0,3
+ PRODUCTVERSION 4,2,0,3
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -172,12 +172,12 @@ BEGIN
             VALUE "Comments", "ASIO driver for Gadgetlabs WavePro series sound cards"
             VALUE "CompanyName", "Gadgetlabs"
             VALUE "FileDescription", "Gadgetlabs ASIO Driver"
-            VALUE "FileVersion", "4.2.0.2"
+            VALUE "FileVersion", "4.2.0.3"
             VALUE "InternalName", "Gadgetlabs ASIO Driver"
             VALUE "LegalCopyright", "Copyright (C) 2010"
             VALUE "OriginalFilename", "Gadgetlabs ASIO Driver"
             VALUE "ProductName", "Gadgetlabs ASIO Driver"
-            VALUE "ProductVersion", "4.2.0.2"
+            VALUE "ProductVersion", "4.2.0.3"
         END
     END
     BLOCK "VarFileInfo"
@@ -186,7 +186,7 @@ BEGIN
     END
 END
 
-#endif    // English (United States) resources
+#endif    // Anglais (États-Unis) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

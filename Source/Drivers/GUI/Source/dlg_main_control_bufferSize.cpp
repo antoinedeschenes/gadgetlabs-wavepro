@@ -85,8 +85,8 @@ BOOL CControlPanelDlg::BufferSize_Get( void )
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Failed to get bufferSize.\n\nInternal error... please contact author about this.",
-		  "Error",
+			_T("Failed to get bufferSize.\n\nInternal error... please contact author about this."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
@@ -276,8 +276,8 @@ BOOL CControlPanelDlg::BufferSize_Set( unsigned long bufferSize )
 	if ( Status == FALSE )
 	{
 		MessageBox(
-		  "Failed to set bufferSize.\nAre there any channels opened... close them and try again.",
-		  "Error",
+			_T("Failed to set bufferSize.\nAre there any channels opened... close them and try again."),
+			_T("Error"),
 		  MB_OK | MB_ICONWARNING | MB_TOPMOST
 		);
 	}
