@@ -1,0 +1,67 @@
+Dear Gadgeter
+
+It was long time ago when we bought our wonderful GadgetLabs WavePro cards.
+And if I may say so, they are serving us very well.
+
+Of course everybody still remembers the feeling when GadgetLabs went out of business... ej those were sad times.
+And when others were celebrating the arrival of XP and its stability, we the Gadgeters were left on
+a dry and rocky road.
+ 
+Luckily the yahoo group was and still is the place where good people meet.
+And after a lot of GadgetLabs love words, we decided that we have to do something about it and that we
+won't go down without a fight. But as every up has its down and we got shocked when the price for the XP
+driver was returned. That almost destroyed all the hope living in us.
+
+But then a young chap (me :) ) came and said... "That can't be so hard to make. It's just a program nothing more."
+So a crusade was lunched where even the ex-Gadgetlabs employees started helping and the whole yahoo group
+was moving as one.
+
+Then after creating completely new tool (ida2sice plugin) that enabled us to reverse engineer the Win98 driver the
+results started to show and we got lower latency with ASIO driver and better stability as some bugs were fixed.
+
+So we were building and rebuilding again until more than a year later the GadgetLabs XP driver made its
+first noise. It was a pure sin sound, but it was like a symphony to our ears. Of course our bellowed driver had its
+child years where blue screens were seen every now and then, but we all knew that it will just get better and better.
+
+Years passed and we were all happy with XP-driver combo, but then Microsoft pulled the plug and we were again on
+a dry and rocky road. It showed us the 64bit Windows 7 smiling with those white teeth and inviting us to join it,
+but we didn't want to go without our bellowed GadgetLabs cards.
+
+But then a not so young chap (yeah 8 years passed :) ) came and said... "That can't be so hard to make.
+It's just a 64 bit program nothing more." And the crusade started again. ;)
+
+So I give you the new and shiny 32/64 bit Gadgetlabs Wavepro series driver for XP, Vista and Windows 7. Yeay. :)
+
+
+
+Now I would like to tell you another story that is living in me. :)
+
+It was some 5 years ago, even between writing the GadgetLabs XP driver, I came across a theory that inspired
+me to think deeper and wider than before. So I started reading and reading and a small idea was born.
+That idea then became a dream which grew and grew in me.
+So I read everything I could, made all kind of simulations and now I would like to make this dream a reality. :)
+
+After a little more then a year trying to save money to buy the main part of the dream device, I realized that I can't make it on my own.
+So I'm asking you for a little help.
+
+For that I prepared some pictures which are part of the driver's package... look into "Help me with my dream" folder.
+The pictures show simulation of a special kind of homopolar generator and for that to become a reality I need a special kind of a motor:
+http://www.etel.ch/Torque_Motors  ->  http://www.etel.ch/documents/showFile.asp?ID=776
+
+Unfortunately this motor is really rare and really expensive. It costs around 3500eur and that is a lot of money for me.
+
+I know that asking for money is always a problem, but I hope that you can donate something as an appreciation for the 
+years I've given into to GadgetLabs driver.
+
+As none of us lives like a king I would humbly ask you for:
+• 15eur or 20usd for the new driver and
+• an arbitrary value for the dream in me
+  (15 eur or 20 usd would be good, but you can donate more if you think that the work it's been done deserves it ;) )
+
+eur: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FHDX7FJ8AC4MN
+
+usd: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N8XQN6DLNLLSU
+
+
+Thank you and God bless.
+Yours truly Waldemar the Super Mostek man ;)

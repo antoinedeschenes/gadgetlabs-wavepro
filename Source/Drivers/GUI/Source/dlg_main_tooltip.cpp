@@ -21,8 +21,7 @@ BOOL CControlPanelDlg::OnTooltip_NeedText( UINT id, NMHDR* pNMHDR, LRESULT* pRes
 		if ( pCard != NULL )
 		{
 		//Get tooltip text.
-			//LPSTR		text_tooltip = NULL;		//if NULL property is not supported
-			LPCWSTR		text_tooltip = NULL;		//AD - for Unicode
+			LPWSTR		text_tooltip = NULL;		//AD - for Unicode
 
 			switch ( pCard->m_Type )
 			{
