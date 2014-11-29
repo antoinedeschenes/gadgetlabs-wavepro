@@ -7,9 +7,9 @@ for any damage that may unintentionally be caused through its use.
 **************************************************************************************************************************
 Name   : GadgetLabs WavePro series windows driver
 
-Systems: 7 and later
+Systems: XP SP2 and later
 
-Version: 4.2.0.3:  - 32/64 bit OS support
+Version: 4.2.0.2:  - 32/64 bit OS support
                    - up to 4 cards in system
                    - FullDuplex channel support
                    - 24bit playback/recording support
@@ -24,7 +24,7 @@ Version: 4.2.0.3:  - 32/64 bit OS support
                    - Full Graphic User Interface
                    - MIDI driver
 
-date: 15.06.2014
+date: 16.01.2011
 
 by: Waldemar Haszlakiewicz ('wal demar. has zlaki e wicz @ sio l.n et' <- remove spaces to get mail address)
 
@@ -143,11 +143,6 @@ Errors that can happen:
 **************************************************************************************************************************
 **************************************************************************************************************************
 News:
-4.2.0.3   - Converted code for Unicode support (antdes45)
-          - Converted code for WDK 8 and up support (antdes45)
-            Notice:
-            This driver version doesn't work with OSes older than Windows 7.
-
 4.2.0.2   - Fixed the 824 not working bug -> code was specially designed for 4xx cards MIDI testing -> removed test code.
           - Disabled automatic sync in GUI -> need to come with some good way to do it... the problem is Win7 which
             opens channels in the background.
