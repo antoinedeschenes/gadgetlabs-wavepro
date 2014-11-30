@@ -285,7 +285,7 @@ NTSTATUS driver_c::Data_ChannelProperty
 	NTSTATUS							Status = STATUS_SUCCESS;
 
 	ioctl_channelProperty_header_s*		pHeader = (ioctl_channelProperty_header_s*)pSystemBuffer;
-	card_c*								pCard;
+	card_c*								pCard = NULL;
 	unsigned long						size;
 
 //Validate.
@@ -454,8 +454,8 @@ NTSTATUS driver_c::Data_SampleRate
 	NTSTATUS					Status = STATUS_SUCCESS;
 	NTSTATUS					Status_locked = STATUS_UNSUCCESSFUL;
 
-	card_c*						pCard;
-	card_c*						pCard_master;
+	card_c*						pCard = NULL;
+	card_c*						pCard_master = NULL;
 	ioctl_setSampleRate_s*		pSampleRate = (ioctl_setSampleRate_s*)pSystemBuffer;
 
 //Validate.

@@ -313,7 +313,7 @@ NTSTATUS card_c::GetChannel_FromPin_Wave
 				//
 				//Pin IDs:
 				//"IN" SINK pin (0), BRIDGE pin (1), "OUT" SINK pin (2), BRIDGE pin(3)
-					channel_stereo_c**		ppChannels;
+					channel_stereo_c**		ppChannels = NULL;
 
 					switch ( pPin->Id )
 					{

@@ -396,7 +396,7 @@ NTSTATUS driver_c::Interface_Disable_Filter
 
 	NTSTATUS			Status;
 
-	GUID*				interfaceClassGuid;
+	GUID*				interfaceClassGuid = NULL;
 	UNICODE_STRING		referenceName;
 	UNICODE_STRING		symbolicLinkName;
 

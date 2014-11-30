@@ -220,7 +220,7 @@ NTSTATUS driver_c::ASIO_LockMemory
 	}
 
 //Get ASIO handle and validate memory size.
-	asioHandle_c*		pHandle;
+	asioHandle_c*		pHandle = NULL;
 
 	if ( SUCCESS( Status ) )
 	{
@@ -593,7 +593,7 @@ NTSTATUS driver_c::ASIO_ProtectionIRP_Remove
 	if ( SUCCESS( Status ) )
 	{
 	//Acquire the lock that guards pending IOCTL operations for this client.
-		PIRP		pIrp;
+		PIRP		pIrp = NULL;
 		KIRQL		spinLock_oldLevel;
 
 		KeAcquireSpinLock( &m_SpinLock_channel_wave, &spinLock_oldLevel );

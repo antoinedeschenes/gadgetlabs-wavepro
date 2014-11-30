@@ -106,7 +106,7 @@ NTSTATUS notifyEvent_c::SetEvent_ChannelProperty_ControlEnabled
 	}
 
 //Create new event.
-	notifyEvent_c*		pEvent;
+	notifyEvent_c*		pEvent = NULL;
 
 	if ( SUCCESS( Status ) )
 	{
@@ -147,7 +147,7 @@ NTSTATUS notifyEvent_c::SetEvent_ChannelProperty_Monitor
 	}
 
 //Create new event.
-	notifyEvent_c*		pEvent;
+	notifyEvent_c*		pEvent = NULL;
 
 	if ( SUCCESS( Status ) )
 	{
@@ -190,7 +190,7 @@ NTSTATUS notifyEvent_c::SetEvent_ChannelsOpened
 	}
 
 //Create new event.
-	notifyEvent_c*		pEvent;
+	notifyEvent_c*		pEvent = NULL;
 
 	if ( SUCCESS( Status ) )
 	{
@@ -232,7 +232,7 @@ NTSTATUS notifyEvent_c::SetEvent_SampleRate
 	}
 
 //Create new event.
-	notifyEvent_c*		pEvent;
+	notifyEvent_c*		pEvent = NULL;
 
 	if ( SUCCESS( Status ) )
 	{
